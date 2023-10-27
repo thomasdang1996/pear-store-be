@@ -1,6 +1,6 @@
 package com.dang.pearstorebe.mapper;
 
-import com.dang.pearstorebe.dto.ProductDto;
+import com.dang.pearstorebe.dto.AddNewProductRequest;
 import com.dang.pearstorebe.dto.ProductsByTypeDto;
 import com.dang.pearstorebe.entity.Product;
 import org.mapstruct.*;
@@ -13,26 +13,24 @@ import java.util.List;
         injectionStrategy = InjectionStrategy.CONSTRUCTOR,
         builder = @Builder(disableBuilder = true)
 )
-public abstract class ProductMapper implements AbstractMapper<Product, ProductDto> {
+public interface ProductMapper extends AbstractMapper<Product, AddNewProductRequest> {
     @Override
     @Mapping(target = "productType", expression = "java(com.dang.pearstorebe.enums.ProductType.geTypeByCode(dto.getProductTypeCode()))")
     @Mapping(target = "order", ignore = true)
-    public abstract Product toEntity(ProductDto dto);
+    Product toEntity(AddNewProductRequest dto);
 
 
     @Override
     @Mapping(target = "productTypeCode", source = "productType.code")
-    public abstract ProductDto toDto(Product entity);
+    AddNewProductRequest toDto(Product entity);
 
     @Override
-    public abstract List<Product> toEntity(List<ProductDto> dtos);
+    List<Product> toEntity(List<AddNewProductRequest> dtos);
 
     @Override
-    public abstract List<ProductDto> toDto(List<Product> entities);
+    List<AddNewProductRequest> toDto(List<Product> entities);
 
-    public abstract ProductsByTypeDto.Product toProduct(Product productNames);
+    ProductsByTypeDto.Product toProduct(Product productNames);
 
-    public abstract List<ProductsByTypeDto.Product> toProduct(List<Product> productNames);
-
-
+    List<ProductsByTypeDto.Product> toProduct(List<Product> productNames);
 }

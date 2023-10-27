@@ -1,6 +1,6 @@
 package com.dang.pearstorebe.service;
 
-import com.dang.pearstorebe.dto.ProductDto;
+import com.dang.pearstorebe.dto.AddNewProductRequest;
 import com.dang.pearstorebe.dto.ProductsByTypeDto;
 import com.dang.pearstorebe.enums.ProductType;
 import com.dang.pearstorebe.mapper.ProductMapper;
@@ -14,12 +14,12 @@ public class ProductService {
     private final ProductRepository productRepository;
     private final ProductMapper productMapper;
 
-    public ProductDto findById(long id){
+    public AddNewProductRequest findById(long id){
         return productMapper.toDto(productRepository.findById(id));
     }
-    public ProductDto addNewProduct(ProductDto productDto){
+    public AddNewProductRequest addNewProduct(AddNewProductRequest addNewProductRequest){
             return productMapper.toDto(
-                    productRepository.save(productMapper.toEntity(productDto))
+                    productRepository.save(productMapper.toEntity(addNewProductRequest))
             );
     }
 
@@ -32,4 +32,6 @@ public class ProductService {
              )
        );
     }
+
+
 }

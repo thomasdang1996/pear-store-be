@@ -4,6 +4,6 @@ insert into product (id, name, product_type, price)values
 (3, 'iPhone 13', 'PHONE', 599.00),
 (4, 'iPhone 14', 'PHONE',799.00),
 (5, 'iPad Pro 10.5', 'TABLET',299.00),
-(6, 'iPad Pro 11', 'TABLET', 799.0),
+(6, 'iPad Pro 11', 'TABLET', 799.00),
 (7, 'iPad Air', 'TABLET', 599.00),
 (8, 'iPad Air 2', 'TABLET', 699.00);
