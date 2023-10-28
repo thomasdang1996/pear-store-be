@@ -121,12 +121,6 @@
                 <groupId>io.confluent</groupId>
                 <artifactId>kafka-schema-registry-maven-plugin</artifactId>
                 <version>${confluent.version}</version>
-                <configuration>
-                    <schemaRegistryUrls>
-                        <param>http://127.0.0.1:8081</param>
-                    </schemaRegistryUrls>
-                    <outputDirectory>${project.basedir}/target/avro/</outputDirectory>
-                </configuration>
                 <executions>
                     <!--DOWNLOAD-->
                     <execution>
@@ -136,10 +130,15 @@
                             <goal>download</goal>
                         </goals>
                         <configuration>
+                            <schemaRegistryUrls>
+                                <param>http://127.0.0.1:8081</param>
+                            </schemaRegistryUrls>
+                            <outputDirectory>${project.basedir}/target/avro/</outputDirectory>
                             <subjectPatterns>
                                 <!--THIS WON'T WORK WITH PARENTHESES!!!-->
                                 <param>CreateAccountPayload</param>
                             </subjectPatterns>
+                            <outputDirectory/>
                         </configuration>
                     </execution>
                     <!--UPLOAD-->
@@ -150,6 +149,9 @@
                             <goal>register</goal>
                         </goals>
                         <configuration>
+                            <schemaRegistryUrls>
+                                <param>http://127.0.0.1:8081</param>
+                            </schemaRegistryUrls>
                             <subjects>
                                 <CreateAccountPayload>
                                     ${project.basedir}/target/avro/CreateAccountPayload.avsc
