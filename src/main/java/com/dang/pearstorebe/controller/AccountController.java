@@ -14,6 +14,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class AccountController {
     private final AccountService accountService;
+    /**
+     * Sends a message request for adding new account
+     *
+     * @param createAccountRequest request body. Validation to be added
+     * @return OK
+     */
     @PostMapping()
     public ResponseEntity<CreateAccountRequest> createAccount(@RequestBody CreateAccountRequest createAccountRequest) {
         accountService.createAccount(createAccountRequest);
