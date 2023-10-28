@@ -12,8 +12,6 @@ import org.springframework.stereotype.Service;
 public class AccountService {
     private final MessageBus messageBus;
     private final AccountManagerMapper mapper;
-    @Value("${app.kafka.producer.topic}")
-    String topic;
 
     public void createAccount(CreateAccountRequest createAccountRequest){
          messageBus.sendMessage(mapper.toCreateAccountPayload(createAccountRequest));

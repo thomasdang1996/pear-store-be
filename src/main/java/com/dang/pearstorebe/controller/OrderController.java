@@ -1,13 +1,11 @@
 package com.dang.pearstorebe.controller;
 
 import com.dang.pearstorebe.dto.GetAllOrderResponse;
-import com.dang.pearstorebe.dto.OrderDto;
+import com.dang.pearstorebe.dto.OrderRequest;
 import com.dang.pearstorebe.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("api/pear-store-be/order")
@@ -16,8 +14,8 @@ public class OrderController {
     private final OrderService orderService;
     @CrossOrigin
     @PostMapping
-    public ResponseEntity<OrderDto> addProduct(@RequestBody OrderDto orderDto) {
-        return ResponseEntity.ok(orderService.add(orderDto));
+    public ResponseEntity<OrderRequest> addProduct(@RequestBody OrderRequest orderRequest) {
+        return ResponseEntity.ok(orderService.add(orderRequest));
     }
     @CrossOrigin
     @GetMapping("all")

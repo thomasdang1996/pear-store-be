@@ -7,7 +7,7 @@ import lombok.Data;
 @Builder
 @Data
 @AllArgsConstructor
-public class OrderDto {
+public class OrderRequest {
     private String accountId;
     private Long productId;
     private int amount;

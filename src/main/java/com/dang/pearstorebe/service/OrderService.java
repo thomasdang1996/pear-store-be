@@ -1,7 +1,7 @@
 package com.dang.pearstorebe.service;
 
 import com.dang.pearstorebe.dto.GetAllOrderResponse;
-import com.dang.pearstorebe.dto.OrderDto;
+import com.dang.pearstorebe.dto.OrderRequest;
 import com.dang.pearstorebe.entity.Order;
 import com.dang.pearstorebe.mapper.OrderMapper;
 import com.dang.pearstorebe.repository.OrderRepository;
@@ -16,8 +16,8 @@ public class OrderService {
     private final OrderRepository repository;
     private final OrderMapper mapper;
 
-    public OrderDto add(OrderDto orderDto) {
-        Order order = repository.save(mapper.toEntity(orderDto));
+    public OrderRequest add(OrderRequest orderRequest) {
+        Order order = repository.save(mapper.toEntity(orderRequest));
         return mapper.toDto(order);
     }
 
