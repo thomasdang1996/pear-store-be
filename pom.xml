@@ -319,29 +319,6 @@
                             </execution>
                         </executions>
                     </plugin>
-
-                    <!-- GENERATING AVRO OBJECTS-->
-                    <plugin>
-                        <groupId>org.apache.avro</groupId>
-                        <artifactId>avro-maven-plugin</artifactId>
-                        <version>${avro.version}</version>
-                        <configuration>
-                            <stringType>String</stringType>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <id>generate-schema</id>
-                                <phase>none</phase>
-                                <goals>
-                                    <goal>schema</goal>
-                                </goals>
-                                <configuration>
-                                    <sourceDirectory>${avsc.location}</sourceDirectory>
-                                    <outputDirectory>${project.basedir}/target/generated-sources/avro</outputDirectory>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
                 </plugins>
             </build>
         </profile>
