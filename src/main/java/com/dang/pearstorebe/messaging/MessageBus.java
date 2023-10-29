@@ -8,6 +8,7 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Service;
 
+import java.util.Properties;
 import java.util.concurrent.ExecutionException;
 
 @Service
@@ -20,6 +21,9 @@ public class MessageBus {
 
     public void sendMessage(SpecificRecord record) {
         try {
+            String className = record.getClass().getSimpleName();
+            log.info("SimpleName: {}", record.getClass().getSimpleName());
+            log.info("CanonicalName: {}", record.getClass().getCanonicalName());
             log.info("Sending message: {}", record);
             SendResult<String, SpecificRecord> result = kafkaTemplate
                     .send(topic, record)
