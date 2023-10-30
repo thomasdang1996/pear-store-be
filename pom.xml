@@ -124,6 +124,11 @@
             <artifactId>springdoc-openapi-javadoc</artifactId>
             <version>1.6.14</version>
         </dependency>
+        <dependency>
+            <groupId>com.dang</groupId>
+            <artifactId>common-lib</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -174,16 +179,6 @@
                     </excludes>
                     <classifier>exec</classifier>
                 </configuration>
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <goals>-->
-<!--                            <goal>repackage</goal>-->
-<!--                        </goals>-->
-<!--                        <configuration>-->
-<!--                            <attach>false</attach>-->
-<!--                        </configuration>-->
-<!--                    </execution>-->
-<!--                </executions>-->
             </plugin>
 
             <!--DOWNLOAD/UPLOAD AVRO SCHEMAS-->

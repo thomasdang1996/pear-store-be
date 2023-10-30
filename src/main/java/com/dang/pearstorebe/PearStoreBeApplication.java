@@ -3,7 +3,9 @@ package com.dang.pearstorebe;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+@SpringBootApplication(
+		scanBasePackages = {"com.dang.pearstorebe","com.dang.commonlib"}
+)
 public class PearStoreBeApplication {
 
 	public static void main(String[] args) {
