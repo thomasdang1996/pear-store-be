@@ -9,45 +9,45 @@
 This steps enables `pear-store-be` to download its custom library `common-lib` for messaging.
 1) Go to `C:\Users\<user-name>\.m2` and create `settings.xml`.
 2) Paste following text:
-```
- <?xml version="1.0" encoding="UTF-8"?>
- 
- <settings xmlns="http://maven.apache.org/SETTINGS/1.2.0"
-   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.2.0 https://maven.apache.org/xsd/settings-1.2.0.xsd">
- 
-   <servers>
-     <server>
-       <id>github</id>
-       <username>USERNAME</username>
-       <password>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</password>
-     </server>
-   </servers>
- 
-   <activeProfiles>
-     <activeProfile>github</activeProfile>
-   </activeProfiles>
- 
-   <profiles>
-     <profile>
-       <id>github</id>
-       <repositories>
-         <repository>
-           <id>central</id>
-           <url>https://repo1.maven.org/maven2</url>
-         </repository>
-         <repository>
+    ```
+     <?xml version="1.0" encoding="UTF-8"?>
+     
+     <settings xmlns="http://maven.apache.org/SETTINGS/1.2.0"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.2.0 https://maven.apache.org/xsd/settings-1.2.0.xsd">
+     
+       <servers>
+         <server>
            <id>github</id>
-           <url>https://maven.pkg.github.com/thomasdang1996/common-lib</url>
-           <snapshots>
-             <enabled>true</enabled>
-           </snapshots>
-         </repository>
-       </repositories>
-     </profile>
-   </profiles>
- </settings>
-```
+           <username>USERNAME</username>
+           <password>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</password>
+         </server>
+       </servers>
+     
+       <activeProfiles>
+         <activeProfile>github</activeProfile>
+       </activeProfiles>
+     
+       <profiles>
+         <profile>
+           <id>github</id>
+           <repositories>
+             <repository>
+               <id>central</id>
+               <url>https://repo1.maven.org/maven2</url>
+             </repository>
+             <repository>
+               <id>github</id>
+               <url>https://maven.pkg.github.com/thomasdang1996/common-lib</url>
+               <snapshots>
+                 <enabled>true</enabled>
+               </snapshots>
+             </repository>
+           </repositories>
+         </profile>
+       </profiles>
+     </settings>
+    ```
 3) Replace USERNAME with your GitHub username.
 
 ### Running `pear-store-be`
