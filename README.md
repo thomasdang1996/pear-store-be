@@ -6,7 +6,7 @@
 - Install [Maven](https://www.baeldung.com/install-maven-on-windows-linux-mac)
 
 ### Adding `settings.xml`
-This steps enables `pear-store-be` to download its custom library `common-lib` for messaging.
+This steps enables `pear-store-be` to download its custom library `common-lib` for messaging. For more info, see [Working with the Apache Maven registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry)
 1) Go to `C:\Users\<user-name>\.m2` and create `settings.xml`.
 2) Paste following text:
     ```
@@ -48,7 +48,8 @@ This steps enables `pear-store-be` to download its custom library `common-lib` f
        </profiles>
      </settings>
     ```
-3) Replace USERNAME with your GitHub username.
+3) `username` - Replace USERNAME with your GitHub username.
+4) `password` - access token for with `read:packages` scope for custom libraries
 
 ### Running `pear-store-be`
 
