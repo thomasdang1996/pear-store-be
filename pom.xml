@@ -148,12 +148,6 @@
                             <artifactId>lombok-mapstruct-binding</artifactId>
                             <version>0.2.0</version>
                         </path>
-
-                        <path>
-                            <groupId>com.github.therapi</groupId>
-                            <artifactId>therapi-runtime-javadoc-scribe</artifactId>
-                            <version>0.15.0</version>
-                        </path>
                     </annotationProcessorPaths>
                 </configuration>
             </plugin>
@@ -215,6 +209,8 @@
                         <configuration>
                             <subjects>
                                 <CreateAccountPayload>${avsc.location}/CreateAccountPayload.avsc</CreateAccountPayload>
+                                <AccountCreated>${avsc.location}/AccountCreated.avsc</AccountCreated>
+                                <AccountCreationFailed>${avsc.location}/AccountCreationFailed.avsc</AccountCreationFailed>
                             </subjects>
                         </configuration>
                     </execution>
