@@ -62,9 +62,10 @@ Or
 1) `git clone https://github.com/thomasdang1996/pear-store-be.git`
 2) `mvn spring-boot:run -U`
 
-### Swagger
+### Links
 
-Link: http://localhost:8080/swagger-ui/index.html
+Swagger: http://localhost:8080/swagger-ui/index.html
+H2 database: http://localhost:8080/h2-console
 
 ### Other Apps
 
