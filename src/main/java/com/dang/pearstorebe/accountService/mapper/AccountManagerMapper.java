@@ -1,7 +1,7 @@
-package com.dang.pearstorebe.mapper;
+package com.dang.pearstorebe.accountService.mapper;
 
 import avrogenerated.accountmanager.CreateAccountPayload;
-import com.dang.pearstorebe.dto.CreateAccountRequest;
+import com.dang.pearstorebe.accountService.dto.CreateAccountRequest;
 import org.mapstruct.Builder;
 import org.mapstruct.InjectionStrategy;
 import org.mapstruct.Mapper;

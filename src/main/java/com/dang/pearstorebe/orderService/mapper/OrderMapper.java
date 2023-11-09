@@ -1,8 +1,8 @@
-package com.dang.pearstorebe.mapper;
+package com.dang.pearstorebe.orderService.mapper;
 
-import com.dang.pearstorebe.dto.GetAllOrderResponse;
-import com.dang.pearstorebe.dto.OrderRequest;
-import com.dang.pearstorebe.entity.Order;
+import com.dang.pearstorebe.orderService.dto.GetAllOrderResponse;
+import com.dang.pearstorebe.orderService.dto.OrderRequest;
+import com.dang.pearstorebe.orderService.entity.Order;
 import org.mapstruct.*;
 
 import java.util.List;

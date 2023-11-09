@@ -1,4 +1,4 @@
-package com.dang.pearstorebe.enums;
+package com.dang.pearstorebe.orderService.enums;
 
 import lombok.Getter;
 

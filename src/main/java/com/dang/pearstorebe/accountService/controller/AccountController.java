@@ -1,7 +1,7 @@
-package com.dang.pearstorebe.controller;
+package com.dang.pearstorebe.accountService.controller;
 
-import com.dang.pearstorebe.dto.CreateAccountRequest;
-import com.dang.pearstorebe.service.AccountService;
+import com.dang.pearstorebe.accountService.dto.CreateAccountRequest;
+import com.dang.pearstorebe.accountService.service.AccountService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

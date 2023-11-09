@@ -1,8 +1,8 @@
-package com.dang.pearstorebe.controller;
+package com.dang.pearstorebe.orderService.controller;
 
-import com.dang.pearstorebe.dto.GetAllOrderResponse;
-import com.dang.pearstorebe.dto.OrderRequest;
-import com.dang.pearstorebe.service.OrderService;
+import com.dang.pearstorebe.orderService.dto.GetAllOrderResponse;
+import com.dang.pearstorebe.orderService.dto.OrderRequest;
+import com.dang.pearstorebe.orderService.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

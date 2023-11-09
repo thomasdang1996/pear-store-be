@@ -2,6 +2,7 @@ package com.dang.pearstorebe.handler;
 
 import avrogenerated.accountmanager.AccountCreated;
 import avrogenerated.accountmanager.AccountCreationFailed;
+import com.dang.pearstorebe.accountService.handler.AccountHandler;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.extension.ExtendWith;

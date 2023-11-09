@@ -1,4 +1,4 @@
-package com.dang.pearstorebe.dto;
+package com.dang.pearstorebe.accountService.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

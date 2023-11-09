@@ -1,6 +1,6 @@
-package com.dang.pearstorebe.repository;
+package com.dang.pearstorebe.orderService.repository;
 
-import com.dang.pearstorebe.entity.Order;
+import com.dang.pearstorebe.orderService.entity.Order;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

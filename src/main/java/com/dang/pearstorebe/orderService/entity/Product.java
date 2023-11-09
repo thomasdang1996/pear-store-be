@@ -1,6 +1,6 @@
-package com.dang.pearstorebe.entity;
+package com.dang.pearstorebe.orderService.entity;
 
-import com.dang.pearstorebe.enums.ProductType;
+import com.dang.pearstorebe.orderService.enums.ProductType;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

@@ -1,4 +1,4 @@
-package com.dang.pearstorebe.handler;
+package com.dang.pearstorebe.accountService.handler;
 
 
 import avrogenerated.accountmanager.AccountCreated;
@@ -17,21 +17,19 @@ import org.springframework.stereotype.Component;
 public class AccountHandler {
     @KafkaListener(
             topics = "${com.dang.commonlib.messaging.avrogenerated.accountmanager.AccountCreated.topic}",
-            containerFactory = "kafkaListenerContainerFactory",
             groupId = "pear-store-be-group"
     )
     public AccountCreated receive(AccountCreated message) {
-        log.info("Data received: {}", message);
+        log.info("Received {}: {}", message.getClass().getCanonicalName(), message);
         return message;
     }
 
     @KafkaListener(
             topics = "${com.dang.commonlib.messaging.avrogenerated.accountmanager.AccountCreationFailed.topic}",
-            containerFactory = "kafkaListenerContainerFactory",
             groupId = "pear-store-be-group"
     )
     public AccountCreationFailed receive(AccountCreationFailed message) {
-        log.info("Data received: {}", message);
+        log.info("Received {}: {}", message.getClass().getCanonicalName(), message);
         return message;
     }
 }

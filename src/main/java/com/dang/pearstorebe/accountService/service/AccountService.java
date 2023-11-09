@@ -1,8 +1,8 @@
-package com.dang.pearstorebe.service;
+package com.dang.pearstorebe.accountService.service;
 
 import com.dang.commonlib.messaging.MessageBus;
-import com.dang.pearstorebe.dto.CreateAccountRequest;
-import com.dang.pearstorebe.mapper.AccountManagerMapper;
+import com.dang.pearstorebe.accountService.dto.CreateAccountRequest;
+import com.dang.pearstorebe.accountService.mapper.AccountManagerMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

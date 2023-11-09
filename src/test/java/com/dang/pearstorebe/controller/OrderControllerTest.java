@@ -1,8 +1,9 @@
 package com.dang.pearstorebe.controller;
 
-import com.dang.pearstorebe.dto.GetAllOrderResponse;
-import com.dang.pearstorebe.dto.OrderRequest;
-import com.dang.pearstorebe.service.OrderService;
+import com.dang.pearstorebe.orderService.controller.OrderController;
+import com.dang.pearstorebe.orderService.dto.GetAllOrderResponse;
+import com.dang.pearstorebe.orderService.dto.OrderRequest;
+import com.dang.pearstorebe.orderService.service.OrderService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.extension.ExtendWith;

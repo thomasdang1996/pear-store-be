@@ -1,4 +1,4 @@
-package com.dang.pearstorebe.entity;
+package com.dang.pearstorebe.orderService.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;

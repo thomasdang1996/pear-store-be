@@ -1,7 +1,8 @@
 package com.dang.pearstorebe.controller;
 
-import com.dang.pearstorebe.dto.CreateAccountRequest;
-import com.dang.pearstorebe.service.AccountService;
+import com.dang.pearstorebe.accountService.controller.AccountController;
+import com.dang.pearstorebe.accountService.dto.CreateAccountRequest;
+import com.dang.pearstorebe.accountService.service.AccountService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.extension.ExtendWith;

@@ -3,8 +3,9 @@ package com.dang.pearstorebe.service;
 
 import avrogenerated.accountmanager.CreateAccountPayload;
 import com.dang.commonlib.messaging.MessageBus;
-import com.dang.pearstorebe.dto.CreateAccountRequest;
-import com.dang.pearstorebe.mapper.AccountManagerMapper;
+import com.dang.pearstorebe.accountService.dto.CreateAccountRequest;
+import com.dang.pearstorebe.accountService.service.AccountService;
+import com.dang.pearstorebe.accountService.mapper.AccountManagerMapper;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.extension.ExtendWith;
