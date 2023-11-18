@@ -1,6 +1,7 @@
 package com.dang.pearstorebe.accountService.service;
 
 import com.dang.commonlib.messaging.MessageBus;
+import com.dang.commonlib.messaging.enums.HeaderEnum;
 import com.dang.commonlib.transaction.TransactionSynchronizer;
 import com.dang.pearstorebe.accountService.dto.CreateAccountRequest;
 import com.dang.pearstorebe.accountService.mapper.AccountManagerMapper;
@@ -9,6 +10,7 @@ import org.apache.kafka.common.header.internals.RecordHeader;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 @Service
@@ -22,7 +24,7 @@ public class AccountService {
         UUID messageId = UUID.randomUUID();
         messageBus.sendMessage(
                 mapper.toCreateAccountPayload(createAccountRequest),
-                List.of(new RecordHeader("messageId", messageId.toString().getBytes()))
+                Map.of(HeaderEnum.MESSAGE_ID,messageId.toString())
         );
         long transactionId = transactionSynchronizer.registerTransaction(messageId);
         transactionSynchronizer.waitForSync(transactionId);
