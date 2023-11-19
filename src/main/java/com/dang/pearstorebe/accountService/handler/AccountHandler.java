@@ -5,7 +5,7 @@ import avrogenerated.accountmanager.AccountCreated;
 import avrogenerated.accountmanager.AccountCreationFailed;
 import com.dang.commonlib.messaging.MessageUtils;
 import com.dang.commonlib.messaging.enums.HeaderEnum;
-import com.dang.commonlib.transaction.TransactionSynchronizer;
+import com.dang.commonlib.transaction.AsyncManager;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.avro.specific.SpecificRecord;
@@ -23,7 +23,7 @@ import java.util.UUID;
 @Component
 @RequiredArgsConstructor
 public class AccountHandler {
-    private final TransactionSynchronizer transactionSynchronizer;
+    private final AsyncManager asyncManager;
 
     @KafkaListener(
             topics = "${com.dang.commonlib.messaging.avrogenerated.accountmanager.AccountCreated.topic}",
@@ -31,10 +31,12 @@ public class AccountHandler {
     )
     public AccountCreated handleCreated(ConsumerRecord<String, SpecificRecord> message) {
         log.info("Received {}: {}", message.getClass().getCanonicalName(), message);
-        Map<HeaderEnum,String> header= MessageUtils.toHeaderMap(message.headers());
+
+        AccountCreated created = (AccountCreated) message.value();
+        Map<HeaderEnum, String> header = MessageUtils.toHeaderMap(message.headers());
         UUID messageID = UUID.fromString(header.get(HeaderEnum.MESSAGE_ID));
-        transactionSynchronizer.resume(messageID);
-        return  (AccountCreated) message.value();
+        asyncManager.saveEventAndContinue(messageID, created);
+        return created;
     }
 
     @KafkaListener(
@@ -43,8 +45,11 @@ public class AccountHandler {
     )
     public AccountCreationFailed handleFailed(ConsumerRecord<String, SpecificRecord> message) {
         log.info("Received {}: {}", message.getClass().getCanonicalName(), message);
-        UUID messageId = UUID.fromString(new String(message.headers().toArray()[0].value()));
-        transactionSynchronizer.resume(messageId);
-        return (AccountCreationFailed) message.value();
+
+        AccountCreationFailed failed = (AccountCreationFailed) message.value();
+        Map<HeaderEnum, String> header = MessageUtils.toHeaderMap(message.headers());
+        UUID messageID = UUID.fromString(header.get(HeaderEnum.MESSAGE_ID));
+        asyncManager.saveEventAndContinue(messageID,failed);
+        return failed;
     }
 }

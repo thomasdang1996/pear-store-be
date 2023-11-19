@@ -21,9 +21,8 @@ public class AccountController {
      * @return OK
      */
     @PostMapping()
-    public ResponseEntity<CreateAccountRequest> createAccount(@RequestBody CreateAccountRequest createAccountRequest) {
-        accountService.createAccount(createAccountRequest);
-        return ResponseEntity.ok().build();
+    public ResponseEntity<String> createAccount(@RequestBody CreateAccountRequest createAccountRequest) {
+        return accountService.createAccount(createAccountRequest);
     }
 
 }
