@@ -12,7 +12,9 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.ResponseEntity;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 @TestInstance(TestInstance.Lifecycle.PER_METHOD)
@@ -29,8 +31,10 @@ public class AccountControllerTest {
                 .username("someguy")
                 .email("someguy@mail.com")
                 .build();
-        ResponseEntity<CreateAccountRequest> response = accountController.createAccount(createAccountRequest);
-        verify(accountService).createAccount(createAccountRequest);
+        when(accountService.createAccount(isA(CreateAccountRequest.class)))
+                .thenReturn(ResponseEntity.ok().build());
+        ResponseEntity<String> response = accountController.createAccount(createAccountRequest);
+
         assertThat(response)
                 .isEqualTo(ResponseEntity.ok().build());
     }
